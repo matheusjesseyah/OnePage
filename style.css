@@ -1,53 +1,356 @@
 @charset "UTF-8";
 /*
-
-seletor{
+seletor {
     propriedade: valor;
 }
+seletor pode ser: tag, id, class*/
 
-//seletor pode ser:tag, id, class.    
+/* Fontes: 
+    Titulo: Quicksand
+    Texto: Josefin Sans
+    
+    Cores: #173261  #a9a9a9  #343538  #ffffff */
 
-*/
+ @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap');
 
-body{
-    background: #cfe5f8;
+:root{
+    --font-titulo:'Quicksand', sans-serif;
+    --font-texto: 'Josefin Sans', sans-serif;
+ 
+    --cor1: #fff;
+    --cor2: #e8e8e8;
+    --cor3: #a1a1a1;
+    --cor4: #434343;
+    --cor5: #173261;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body{
+    font-family: var(--font-texto);
+    font-size: 1.2rem;
+}
 
-/*SMARTPHONE PORTRAIT*/
+h1,h2,h3,h4,h5,h6{
+    font-family: var(--font-titulo);
+}
 
+/*Layout*/
+.container{
+    margin: 0 auto;
+}
 
+.flex{
+    display: flex;
+    justify-content: space-between;    
+}
 
+.flex2{
+    display: flex;
+    align-items: center;
+}
 
+.flex3{
+    display: flex;
+    flex-direction: column;
+}
 
-/*--------------------------------*/
+#topo{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
 
-/*SMARTPHONE LANDSCAPE*/
+.botao{
+    text-decoration: none;
+    color: var(--cor2);
+    font-size: 1.3rem;
+    background: var(--cor5);
+    padding: 10px 40px;
+    border: 2px solid var(--cor2);
+    border-radius: 25px;
+    font-weight: 700;
+}
 
+/* SMARTPHONE PORTRAIT*/
+header{
+    height: 60px;
+}
 
+#check{
+    display: none;
+}
 
+label{
+    font-size: 3rem;
+    position: fixed;
+    top: 5px;
+    right: 15px;    
+}
 
+nav ul{
+    list-style: none;
+    height: 100vh;
+    background: var(--cor4);
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 100%;
+}
 
-/*--------------------------------*/
+#check:checked ~ ul{
+    right: 0;
+}
 
-/*TABLET PORTRAIT*/
+nav ul li{
+    padding: 20px;
+    border-bottom: 1px solid var(--cor3);
+}
 
+nav ul li a{
+    text-decoration: none;
+    color: var(--cor2);
+}
 
+/*DESTAQUE*/
+main{
+    height: 75vh;
+    background: url("img/banner_front.jpg");
+    background-size: cover;
+    background-position: center;
+    color: var(--cor2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+main h1{
+    font-size: 3rem;
+}
 
+main h2{
+    font-size: 1.1rem;
+    margin: 20px 0px 50px 0px;
+}
 
-/*--------------------------------*/
+#sobre{
+    padding: 50px 0px;
+    background: url(img/background5.jpg);
+    background-size: cover;
+    background-position: center;
+}
 
-/*TABLET LANDSCAPE*/
+.destaque_sobre{
+    display: none;
+}
 
+.texto_sobre{
+    color: var(--cor2);
+    padding: 0px 10px;
+}
 
+.texto_sobre h2{
+    margin-bottom: 10px;
+}
 
+.topico_sobre{
+    margin-top: 20px;
+}
 
-/*--------------------------------*/
+.topico_sobre img{
+    margin-right: 10px;
+}
 
-/*PC*/
+ /*One Page*/
+    .video iframe{
+        width: 340px;
+        height: 191px;
+        border: 0;
+        padding-top: 20px;
+    }
 
+    #onepage{
+        padding: 50px 0px;
+    }
 
+    #wireframe{
+        padding: 50px 0px;
+        background: url(img/background5.jpg);
+        background-size: cover;
+        background-position: center;
+    }
 
+    .texto_wire{
+        color: var(--cor1);
+        padding: 0px 10px;
+    }
 
-/*--------------------------------*/
+    .texto_wire h2{
+        margin-bottom: 10px;
+    }
+
+    .texto_wire p{
+        margin-bottom: 40px;
+    }
+
+    .texto_wire span{
+        display: none;
+    }
+
+    .qrcode{
+        display: none;
+    }
+
+/* SMARTPHONE LANDSCAPE*/
+@media (min-width: 576px) {
+    body{
+    background: #95caf8;
+    }
+
+    .container{ /*Layout*/
+        max-width: 540px;
+    }
+
+    main h1, main h2{
+        text-shadow: #000 0.2em 0.2em 0.2em;
+    }
+
+    /*One Page*/
+    .video iframe{
+        width: 560px;
+        height: 315px;
+    }
+}
+
+/* TABLET PORTRAIT*/
+@media (min-width: 768px) {
+    body{
+    background: #d0a2f6;
+    }
+
+    .container{ /*Layout*/
+        max-width: 720px;        
+    }
+
+    /*DESTAQUE*/
+    main{
+        height: 45vh;
+    }
+
+    main h1{
+        font-size: 5rem;        
+    }
+
+    main h2{
+        font-size: 2rem;
+    }
+}
+
+/* TABLET LANDSCAPE*/
+@media (min-width: 992px) {
+    body{
+    background: #e3f7b6;
+    }
+
+    .container{ /*Layout*/
+        max-width: 960px;
+    }
+
+    /*DESTAQUE*/
+    main{
+        height: 70vh;
+    }
+
+    /*SOBRE & WIREFRAME*/
+    .texto_sobre h2, .texto_wire h2{
+        font-size: 2rem;
+    }
+
+    .texto_sobre p, .texto_wire p{
+        font-size: 1.6rem;
+    }
+}
+
+/* PC */
+@media (min-width: 1200px) {
+    body{
+    background: #f0a73a;
+    }
+
+    .container{ /*Layout*/
+        max-width: 1140px;
+    }
+
+    header{
+        height: 125px;       
+    }
+
+    .logo img{
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+
+    label{
+        display: none;
+    }
+
+    nav ul{
+        position: static;
+        height: auto;
+        background-color: transparent;
+        margin-top: 50px;
+    }
+
+    nav ul li{
+        float: left;
+        border: 0;
+    }
+
+    nav ul li a{
+        color: var(--cor4);
+    }
+
+    nav ul li a:hover{
+        color: var(--cor5);
+    }
+
+    .destaque_sobre{
+        display: inline;
+    }
+
+    .destaque_sobre img{
+        border-radius: 50%;
+        margin-right: 50px;
+    }
+
+    #sobre{
+        background-attachment: fixed;
+    }
+
+    /*One Page*/
+    .flex3{
+        flex-direction: row;
+        align-items: center;
+    }
+
+    /*wireframe*/
+    #wireframe{
+        background-attachment: fixed;
+    }
+
+    #wireframe span{
+        display: inline;
+        color: var(--cor5);
+        font-weight: 700;
+    }
+
+    .qrcode{
+        display: inline;
+    }
+}
+
